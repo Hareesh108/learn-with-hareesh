@@ -8,6 +8,15 @@ function Basic() {
   console.log(myState[1], "myState[1]");
 
   // 02:
+  const data = useState("Bhittam");
+  const [name] = data
+  console.log(name,"name before update");
+
+  // 04:
+  const [_,setName] = data
+  console.log(_,"value____name after update");
+  
+  // 04:
   const [count, setCount] = useState(0);
   console.log(count, "count");
 
@@ -16,6 +25,7 @@ function Basic() {
       <button
         onClick={() => {
           setCount((prev) => prev + 1);
+          setName("Harry")
         }}
       >
         Click{" "}
