@@ -1,18 +1,18 @@
 import { useState } from "react";
 
 function Basic() {
-  // 01:
+  // 01: common use case
   const myState = useState("Hareesh");
   console.log(myState, "myState");
   console.log(myState[0], "myState[0]");
   console.log(myState[1], "myState[1]");
 
-  // 02:
+  // 02: array destructuring assignment -> variable
   const data = useState("Bhittam");
   const [name] = data
   console.log(name,"name before update");
 
-  // 04:
+  // 03: array destructuring assignment -> function / destructuring with unused variable
   const [_,setName] = data
   console.log(_,"value____name after update");
   
