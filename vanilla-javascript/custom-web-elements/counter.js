@@ -2,7 +2,7 @@ class Counter extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    
+
     // Create template element
     const template = document.createElement("template");
     template.innerHTML = `
@@ -13,6 +13,10 @@ class Counter extends HTMLElement {
         </style>
         <button><slot></slot></button>
       `;
+
+    // Shadow DOM is a way of encapsulating DOM subtrees and their associated CSS styles into separate scopes,
+    // hidden from the main document DOM. This encapsulation helps in building modular and reusable components
+    // without the risk of style or script conflicts with the main document or other components.
 
     // Append template content to shadow DOM
     this.shadowRoot.appendChild(template.content.cloneNode(true));
