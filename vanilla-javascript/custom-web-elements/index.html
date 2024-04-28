@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script type="module" src="counter.js"></script>
+</head>
+<body>
+  <my-counter count="1"></my-counter>
+  <my-counter count="1"></my-counter>
+
+  <template id="my-counter-template">
+    <style>
+      button {
+        cursor: pointer;
+      }
+    </style>
+    <button><slot></slot></button>
+  </template>
+</body>
+</html>
