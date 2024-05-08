@@ -1,0 +1,17 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#my_name {
+  color: blueviolet;
+  font-size: xx-large;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.about {
+  color: rgb(255, 0, 225);
+}
