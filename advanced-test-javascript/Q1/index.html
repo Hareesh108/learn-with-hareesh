@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Following order to execution of the script -->
+
+    <!-- Load in 50ms -->
+    <script async src="async1.js"></script>
+
+    <!-- Load in 70ms  when we have both async and defer browser will act like async-->
+    <script async src="asyncdefer.js"></script>
+
+    <!-- Load in 150ms -->
+    <script async src="async2.js"></script>
+
+    <!-- Load in 200ms -->
+    <script async src="defer1.js"></script>
+
+    <!-- Load in 250ms -->
+    <script async src="defer2.js"></script>
+  </head>
+  <body></body>
+</html>
