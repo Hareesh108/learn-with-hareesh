@@ -1,21 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Suspense, use } from "react";
+import { Suspense } from "react";
+import { API_ENDPOINT } from "../../api";
+import { ErrorBoundaryProvider } from "../../api/useErrorBoundary";
+import ErrorBoundary from "../../ErrorBoundary";
+import { Comments } from "./Comments";
 
-function Comments({ commentsPromise }) {
-
-  // `use` will suspend until the promise resolves.
-  const comments = use(commentsPromise);
-  return comments.map((comment) => <p key={comment.id}>{comment}</p>);
-}
-
-export function UseDemo({ commentsPromise }: any) {
-  // When `use` suspends in Comments,
-  // this Suspense boundary will be shown.
-
+export function UseDemo() {
+  const commentsPromise = fetch(`${API_ENDPOINT}/photos`);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Comments commentsPromise={commentsPromise} />
-    </Suspense>
+    <ErrorBoundaryProvider>
+      <ErrorBoundary fallback={<div>Something went wrong.</div>}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Comments commentsPromise={commentsPromise} />
+        </Suspense>
+      </ErrorBoundary>
+    </ErrorBoundaryProvider>
   );
 }

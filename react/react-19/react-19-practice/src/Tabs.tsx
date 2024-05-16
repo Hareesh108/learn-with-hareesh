@@ -4,6 +4,7 @@ import { GetTheResponse } from "./hooks/01_useTransition";
 import { UseTransitionWithForm } from "./hooks/02_useTransitionForm";
 import { UseActionStateDemo } from "./hooks/03_useActionState";
 import { UseFormStatusDemo } from "./hooks/04_useFormStatus";
+import { UseDemo } from "./newApi/useDemo";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -51,7 +52,7 @@ const Tabs = () => {
         {activeTab === 1 && <UseTransitionWithForm />}
         {activeTab === 2 && <UseActionStateDemo />}
         {activeTab === 3 && <UseFormStatusDemo />}
-        {activeTab === 4 && <div>Content for Tab 4</div>}
+        {activeTab === 4 && <UseDemo />}
       </div>
     </div>
   );
