@@ -4,21 +4,18 @@ import Spinner from "../../Spinner";
 
 export function GetTheResponse() {
   const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
 
   const handleSubmit = () => {
     startTransition(async () => {
       const res = await fetch(`${API_ENDPOINT}/photos`);
-      console.log(res, "res");
-
       const json = await res.json();
-      console.log(json, "json");
 
       if (res.ok) {
         setData(json);
       } else {
-        setError(json?.error);
+        setError("Something went wrong!!");
       }
     });
   };
