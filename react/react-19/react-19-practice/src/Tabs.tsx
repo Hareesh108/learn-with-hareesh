@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./Tabs.css"; // You can create a CSS file for styling the tabs
+import { UseActionStateDemo } from "./hooks/useActionState";
+import { UseFormStatusDemo } from "./hooks/useFormStatus";
 import { GetTheResponse } from "./hooks/useTransition";
+import { UseTransitionWithForm } from "./hooks/useTransitionForm";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -22,26 +25,33 @@ const Tabs = () => {
           className={activeTab === 1 ? "tab active" : "tab"}
           onClick={() => handleTabClick(1)}
         >
-          Tab 2
+          useTransitionWithForm
         </div>
         <div
           className={activeTab === 2 ? "tab active" : "tab"}
           onClick={() => handleTabClick(2)}
         >
-          Tab 3
+          useActionState
         </div>
         <div
           className={activeTab === 3 ? "tab active" : "tab"}
           onClick={() => handleTabClick(3)}
         >
-          Tab 4
+          useFormStatus
+        </div>
+        <div
+          className={activeTab === 4 ? "tab active" : "tab"}
+          onClick={() => handleTabClick(4)}
+        >
+          use
         </div>
       </div>
       <div className="tab-content">
         {activeTab === 0 && <GetTheResponse />}
-        {activeTab === 1 && <div>Content for Tab 2</div>}
-        {activeTab === 2 && <div>Content for Tab 3</div>}
-        {activeTab === 3 && <div>Content for Tab 4</div>}
+        {activeTab === 1 && <UseTransitionWithForm />}
+        {activeTab === 2 && <UseActionStateDemo />}
+        {activeTab === 3 && <UseFormStatusDemo />}
+        {activeTab === 4 && <div>Content for Tab 4</div>}
       </div>
     </div>
   );
