@@ -1,0 +1,32 @@
+.tabs-container {
+    width: 100%;
+  }
+  
+  .tabs {
+    display: flex;
+  }
+  
+  .tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background-color: #df8a78;
+  }
+  
+  .tab:last-child {
+    border-right: 1px solid #ccc;
+  }
+  
+  .tab.active {
+    background-color: #f5d06a;
+  }
+  
+  .tab-content {
+    padding: 20px;
+    border: 1px solid #51f32d;
+    border-top: none;
+  }
+  
