@@ -1,20 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Suspense } from "react";
+import { use } from "react";
 import { API_ENDPOINT } from "../../api";
-import { ErrorBoundaryProvider } from "../../api/useErrorBoundary";
-import ErrorBoundary from "../../ErrorBoundary";
-import { Comments } from "./Comments";
+
+const fetchData = async () => {
+  const res = await fetch(`${API_ENDPOINT}/users`);
+  return await res.json();
+};
 
 export function UseDemo() {
-  const commentsPromise = fetch(`${API_ENDPOINT}/photos`);
+  const users = use(fetchData());
+  console.log(users, "commentsPromise");
 
   return (
-    <ErrorBoundaryProvider>
-      <ErrorBoundary fallback={<div>Something went wrong.</div>}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Comments commentsPromise={commentsPromise} />
-        </Suspense>
-      </ErrorBoundary>
-    </ErrorBoundaryProvider>
+    <ul>
+      {users?.map((user: any) => (
+        <div key={user.id}>
+          <h2>{user.name}</h2>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </ul>
   );
 }

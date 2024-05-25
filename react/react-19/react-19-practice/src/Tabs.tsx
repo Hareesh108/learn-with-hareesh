@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import "./Tabs.css"; // You can create a CSS file for styling the tabs
 import { GetTheResponse } from "./hooks/01_useTransition";
 import { UseTransitionWithForm } from "./hooks/02_useTransitionForm";
@@ -52,7 +52,11 @@ const Tabs = () => {
         {activeTab === 1 && <UseTransitionWithForm />}
         {activeTab === 2 && <UseActionStateDemo />}
         {activeTab === 3 && <UseFormStatusDemo />}
-        {activeTab === 4 && <UseDemo />}
+        {activeTab === 4 && (
+          <Suspense fallback={<div>Loading...</div>}>
+            <UseDemo />{" "}
+          </Suspense>
+        )}
       </div>
     </div>
   );

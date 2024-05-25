@@ -22,7 +22,7 @@ export function GetTheResponse() {
 
   return (
     <div>
-      <button onClick={handleSubmit} disabled={isPending}>
+      <button onClick={handleSubmit} >
         Fetch Data
       </button>
       {error && <p>{error}</p>}
